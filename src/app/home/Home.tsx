@@ -36,10 +36,13 @@ export default function Home() {
   }, [mouseLocation]);
 
   
-
-  const horizontalLine = useMemo(() => ({ active }: { active: boolean }) => (
-     <hr className={`mx-2 ${active ? 'text-teal-50 w-[200px]' : 'text-[#5a545460] w-[100px]'} transition-all duration-300 ease-linear`}></hr> 
-  ), [activeSection]);
+const horizontalLine = useMemo(() => {
+  const HorizontalLine = ({ active }: { active: boolean }) => (
+    <hr className={`mx-2 ${active ? 'text-teal-50 w-[200px]' : 'text-[#5a545460] w-[100px]'} transition-all duration-300 ease-linear`}></hr>
+  );
+  HorizontalLine.displayName = 'HorizontalLine';
+  return HorizontalLine;
+}, [activeSection]);
 
   return (
     <div id="page" className="bg-[#101820] min-w-[100] flex justify-center mx-auto text-[#eaeaea9d] min-h-screen antialiased ">
