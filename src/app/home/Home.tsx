@@ -90,19 +90,17 @@ const horizontalLine = useMemo(() => {
       </header>
       <main className="flex flex-col gap-12 justify-start flex-auto min-w-screen items-start md:py-20 px-20">
         <div id="about-me" className="flex flex-col py-10 text-lg font-sans items-start justify-start">
-          
-          <p >
-            I'm a software developer who enjoys to build things. I have various experiences across Back end and Front end development. I just recently realize that I also love tinkering with DevOps tools. I find fulfillment in crafting robust and scalable solutions that solve real-world problems.
+        <p>
+            I&apos;m a software developer who enjoys to build things. I have various experiences across Back end and Front end development. I just recently realize that I also love tinkering with DevOps tools. I find fulfillment in crafting robust and scalable solutions that solve real-world problems.
           </p>
-          <br />
-          <p >
-            I currently work as a Freelance developer working on maintenance and new features for a few clients like <a className="text-slate-300 hover:text-sky-400" href="https://thefreelancemovement.com">The Freelance Movement Tribe</a> where I work on on <a className="text-slate-300 hover:text-sky-400" href="https://tfmt.ph">Atlas</a>  - a platform that helps freelancers learn and grow their business. The other project is an E-Commerce platform for a small business in United States.
-          </p>
-          <br />
-          <p >
+                    <br />
+                    <p >
+                      I currently work as a Freelance developer working on maintenance and new features for a few clients like <a className="text-slate-300 hover:text-sky-400" href="https://thefreelancemovement.com">The Freelance Movement Tribe</a> where I work on on <a className="text-slate-300 hover:text-sky-400" href="https://tfmt.ph">Atlas</a>  - a platform that helps freelancers learn and grow their business. The other project is an E-Commerce platform for a small business in United States.
+                    </p>
+                    <br />
+                    <p>
             I&apos;m a fan of mystery fiction novel in my spare time. I also enjoy playing video games and watching movies. I&apos;m a big fan of the Marvel Cinematic Universe and I&apos;m looking forward to the next phase of the MCU.
           </p>
-          
         </div>
           <div id="projects" className="flex flex-col min-h-screen max-w-screen-xl min-w-full font-sans items-start justify-start">
               <ProjectCard
