@@ -15,10 +15,10 @@ export default function ProjectCard({ title, description, link, tags, dateFrom, 
   return (
     <div
     onClick={() => window.open(`https://${link}`, "_blank")}
-    className="flex cursor-pointer flex-row w-full gap-10 px-8 py-12 min-w-40 rounded-xl shadow-none font-sans hover:bg-slate-800/50 border-t-[1px] border-slate-100/0 hover:border-t-[1px] hover:border-slate-100/5 hover:shadow-lg">
+    className="flex cursor-pointer flex-col md:flex-row w-full gap-0 md:gap-10 sm:px-8 md:py-12 py-2 min-w-40 rounded-xl shadow-none font-sans hover:bg-slate-800/50 border-t-[1px] border-slate-100/0 hover:border-t-[1px] hover:border-slate-100/5 hover:shadow-lg">
      <div
-     className="w-auto border-t-[1px] antialiased border-[#eaeaea9d] mt-2 text-nowrap"
-     > <span className="text-md font-normal">{dateFrom} - {dateTo}</span>
+     className="w-auto sm:border-t-[1px] antialiased border-[#eaeaea9d] m-0 p-0 md:mt-2 text-nowrap"
+     > <span className="text-sm sm:text-md font-normal">{dateFrom} - {dateTo}</span>
 
      </div>
      <div className="flex flex-col gap-2 items-start justify-start w-100 rounded-lg w-auto sub" >
