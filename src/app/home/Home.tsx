@@ -46,11 +46,11 @@ const horizontalLine = useMemo(() => {
 
   return (
     <div id="page" className="text-[#eaeaea9d] min-h-screen antialiased">
-    <div id="page-container" className="flex flex-col w-full md:flex-row gap-12 relative rounded-lg font-sans md:px-36">
-      <header className="flex sm:flex flex-none max-w-[500] flex-col sm:w-full md:sticky top-0 tracking-tight items-start sm:just-start justify-center md:justify-start min-h-96 font-sans max-h-[300px] sm:max-h-screen z-10 sm:px-8 sm:py-20 md:px-16 sm:margin-y-auto px-16">
+      <div id="page-container" className="flex flex-col w-100 md:flex-row gap-12 relative rounded-lg font-sans md:px-36">
+      <header className="flex flex-col flex-none w-auto md:sticky top-0 tracking-tight items-start justify-center md:justify-start min-h-96 font-sans max-h-[300px] sm:max-h-screen z-10 px-4 sm:px-8 sm:py-20 md:px-16">
         <div className="flex flex-col relative">
         <h1 className="text-4xl relative w-full sm:text-6xl font-extrabold text-nowrap text-teal opacity-0.5">Ej Sinfuego</h1>
-        <p className="w-auto text-[#eaeaea9d] md:mt-2 mt-2 text-lg md:text-lg w-72 leading-3 md:leading-none">building bridges between concepts and working code</p>
+        <p className="text-[#eaeaea9d] md:mt-2 mt-2 text-lg md:text-lg w-72 leading-3 md:leading-none">building bridges between concepts and working code</p>
         </div>
 
         <nav className="hidden md:flex md:flex-col justify-start items-start gap-4 mt-12 px-2">
@@ -87,7 +87,7 @@ const horizontalLine = useMemo(() => {
         </a>
       </div>
       </header>
-      <main className="flex-col flex w-full grow max-w-full mx-0 gap-12 justify-start md:flex-auto relative items-start md:py-20 px-10 sm:px-10">
+      <main className="flex-col flex w-full grow max-w-full mx-0 gap-12 justify-start md:flex-auto relative items-start md:py-20 px-4 sm:px-10">
         <div id="about-me" className="flex min-w-20 flex-col py-10 text-md sm:text-lg font-sans w-100 items-start justify-start">
         <p>
             I&apos;m a software developer who enjoys to build things. I have various experiences across Back end and Front end development. I just recently realize that I also love tinkering with DevOps tools. I find fulfillment in crafting robust and scalable solutions that solve real-world problems.
