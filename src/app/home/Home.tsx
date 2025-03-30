@@ -45,17 +45,16 @@ const horizontalLine = useMemo(() => {
 }, [activeSection]);
 
   return (
-    <div id="page" className="bg-[#101820] min-w-[100] flex justify-center mx-auto text-[#eaeaea9d] min-h-screen antialiased ">
-      <div className="flex flex-col md:flex-row gap-32 justify-center rounded-lg font-sans max-w-screen-xl">
-      <header className="flex flex-col w-full md:sticky top-0 tracking-tight items-start justify-center md:justify-start min-h-screen font-sans lg:max-h-screen z-10 px-8 md:px-16 p-20">
-        <div className="flex flex-col">
-        <h1 className="text-6xl font-extrabold text-nowrap text-teal opacity-0.5">Ej Sinfuego</h1>
-        <p className="text-[#eaeaea9d] mt-8 text-lg md:text-2xl w-72 tracking-tight">Back-end Developer</p>
-        <p className="text-[#eaeaea9d] text-lg md:text-2xl w-72 tracking-tight">with Front-end Skills</p>
+    <div id="page" className="text-[#eaeaea9d] min-h-screen antialiased">
+      <div id="page-container" className="flex flex-col w-auto md:flex-row gap-12 relative rounded-lg font-sans sm:w-full md:px-36">
+      <header className="flex sm:flex flex-none max-w-[500] flex-col sm:w-full md:sticky top-0 tracking-tight items-start sm:just-start justify-center md:justify-start min-h-96 font-sans max-h-[300px] sm:max-h-screen z-10 sm:px-8 sm:py-20 md:px-16 sm:margin-y-auto px-16">
+        <div className="flex flex-col relative">
+        <h1 className="text-4xl relative w-full sm:text-6xl font-extrabold text-nowrap text-teal opacity-0.5">Ej Sinfuego</h1>
+        <p className="w-auto text-[#eaeaea9d] md:mt-2 mt-2 text-lg md:text-lg w-72 leading-3 md:leading-none">building bridges between concepts and working code</p>
         </div>
 
-        <nav className="hidden md:flex md:flex-col justify-start items-start gap-4 mt-12 px-2 ">
-          <li className={`text-[#eaeaea9d] ${activeSection === 'about-me' && 'text-teal-50'} flex flex-row flex-auto justify-center items-center hover:text-gray-50 cursor-pointer`}
+        <nav className="hidden md:flex md:flex-col justify-start items-start gap-4 mt-12 px-2">
+          <li className={`text-[#eaeaea9d] ${activeSection === 'about-me' && 'text-teal-50'} flex flex-row flex-auto tracking-tight justify-center items-center hover:text-gray-50 cursor-pointer`}
           onClick={() => {
             setActiveSection("about-me");
             const aboutMe = document.getElementById("about-me");
@@ -86,10 +85,10 @@ const horizontalLine = useMemo(() => {
         <Email size={24} color="#eaeaea9d" className="cursor-pointer hover:text-white"
         />
         </a>
-        </div>
+      </div>
       </header>
-      <main className="flex flex-col gap-12 justify-start flex-auto min-w-screen items-start md:py-20 px-20">
-        <div id="about-me" className="flex flex-col py-10 text-lg font-sans items-start justify-start">
+      <main className="flex-col flex sm:w-100 grow max-w-full mx-0 md:w-30 gap-12 justify-start md:flex-auto relative items-start md:py-20 sm:px-[10px] px-10">
+        <div id="about-me" className="flex min-w-20 flex-col py-10 text-md sm:text-lg font-sans w-100 items-start justify-start">
         <p>
             I&apos;m a software developer who enjoys to build things. I have various experiences across Back end and Front end development. I just recently realize that I also love tinkering with DevOps tools. I find fulfillment in crafting robust and scalable solutions that solve real-world problems.
           </p>
@@ -102,7 +101,7 @@ const horizontalLine = useMemo(() => {
             I&apos;m a fan of mystery fiction novel in my spare time. I also enjoy playing video games and watching movies. I&apos;m a big fan of the Marvel Cinematic Universe and I&apos;m looking forward to the next phase of the MCU.
           </p>
         </div>
-          <div id="projects" className="flex flex-col min-h-screen max-w-screen-xl min-w-full font-sans items-start justify-start">
+          <div id="projects" className="flex flex-col min-h-screen min-w-full font-sans items-start justify-start">
               <ProjectCard
               title="Junior Software Developer - The Freelance Movement Tribe"
               description="Atlas is a Learning Management System that helps freelancers learn and grow their business. It is a platform that offers courses, workshops, and resources to help freelancers succeed in their business. It has a multi-role system that allows users to have different access levels depending on their role in the platform. I work on maintenance and new features for the platform."
