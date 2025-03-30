@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   
   return (
-    <html lang="en">
+    <html lang="en" className="bg-[#101820] w-full">
       <GoogleAnalytics />
       <WebVitals />
       <body
