@@ -1,9 +1,11 @@
 'use client'
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import type { Viewport } from "next";
 import ProjectCard from "../components/ProjectCard";
 import { Email, Github, Linkedin } from "@deemlol/next-icons";
 import { useRouter } from "next/navigation";
+import Nav from "./Nav";
+import Projects from "../page/Projects";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -36,13 +38,7 @@ export default function Home() {
   }, [mouseLocation]);
 
   
-const horizontalLine = useMemo(() => {
-  const HorizontalLine = ({ active }: { active: boolean }) => (
-    <hr className={`mx-2 ${active ? 'text-teal-50 w-[200px]' : 'text-[#5a545460] w-[100px]'} transition-all duration-300 ease-linear`}></hr>
-  );
-  HorizontalLine.displayName = 'HorizontalLine';
-  return HorizontalLine;
-}, [activeSection]);
+
 
   return (
     <div id="page" className="text-[#eaeaea9d] min-h-screen antialiased">
@@ -53,25 +49,8 @@ const horizontalLine = useMemo(() => {
         <p className="text-[#eaeaea9d] md:mt-2 mt-2 text-lg md:text-lg w-72 leading-3 md:leading-none">building bridges between concepts and working code</p>
         </div>
 
-        <nav className="hidden md:flex md:flex-col justify-start items-start gap-4 mt-12 px-2">
-          <li className={`text-[#eaeaea9d] ${activeSection === 'about-me' && 'text-teal-50'} flex flex-row flex-auto tracking-tight justify-center items-center hover:text-gray-50 cursor-pointer`}
-          onClick={() => {
-            setActiveSection("about-me");
-            const aboutMe = document.getElementById("about-me");
-            aboutMe?.scrollIntoView({ behavior: "smooth" });
-          }
-          }
-          >About Me {horizontalLine({ active: activeSection === 'about-me'})}</li>
-          <li className={`text-[#eaeaea9d] ${activeSection === 'projects' && 'text-teal-50'} flex flex-row flex-auto justify-center items-center hover:text-gray-50 cursor-pointer`}
-           onClick={() => {
-            setActiveSection("projects");
-            const aboutMe = document.getElementById("projects");
-            aboutMe?.scrollIntoView({ behavior: "smooth" });
-          }}
-          >Projects
-          {horizontalLine({ active: activeSection === 'projects'})}
-          </li>
-        </nav>
+        <Nav activeSection={activeSection} setActiveSection={setActiveSection} />
+       
         <div className="flex flex-row gap-4 mt-12">
         <Github size={24} className="cursor-pointer" color="#eaeaea9d" onClick={() => {
           router.push('https://github.com/ejsinfuego');
@@ -87,7 +66,7 @@ const horizontalLine = useMemo(() => {
         </a>
       </div>
       </header>
-      <main className="flex-col flex w-full grow max-w-full mx-0 gap-12 justify-start md:flex-auto relative items-start md:py-20 px-4 sm:px-10">
+      <main className="flex-col flex w-full grow max-w-full mx-0 gap-12 justify-start md:flex-auto relative items-start md:py-20 px-4 sm:px-10 py-20">
         <div id="about-me" className="flex min-w-20 flex-col py-10 text-md sm:text-lg font-sans w-100 items-start justify-start">
         <p>
             I&apos;m a software developer who enjoys to build things. I have various experiences across Back end and Front end development. I just recently realize that I also love tinkering with DevOps tools. I find fulfillment in crafting robust and scalable solutions that solve real-world problems.
@@ -101,7 +80,7 @@ const horizontalLine = useMemo(() => {
             I&apos;m a fan of mystery fiction novel in my spare time. I also enjoy playing video games and watching movies. I&apos;m a big fan of the Marvel Cinematic Universe and I&apos;m looking forward to the next phase of the MCU.
           </p>
         </div>
-          <div id="projects" className="flex flex-col min-h-screen min-w-full font-sans items-start justify-start">
+          <div id="experiences" className="flex flex-col min-h-screen min-w-full font-sans items-start justify-start">
               <ProjectCard
               title="Junior Software Developer - The Freelance Movement Tribe"
               description="Atlas is a Learning Management System that helps freelancers learn and grow their business. It is a platform that offers courses, workshops, and resources to help freelancers succeed in their business. It has a multi-role system that allows users to have different access levels depending on their role in the platform. I work on maintenance and new features for the platform."
@@ -112,15 +91,17 @@ const horizontalLine = useMemo(() => {
             />
 
             <ProjectCard
-              title="E-Commerce Platform - Client"
+              title="E-Commerce Platform - Bellas Bakery"
               description="This is an e-commerce platform for a bakery in Austin, Texas. It compose of both client facing and admin facing features. The client facing features include product listing, product details, and cart. The admin facing features include product management, order management, and user management"
-              link="https://bellasbakeryatx.com/"
+              link="_blank"
               tags={["Spring-Boot", "ReactJS", "NextJS", "ExpressJS", "Heroku"]}
               dateFrom="2024"
               dateTo="Present"
             />
           </div>
-
+          <div id="projects" className="flex flex-col min-h-screen min-w-auto font-sans items-start justify-start">
+            <Projects />
+          </div>
       </main>
       </div>
       
