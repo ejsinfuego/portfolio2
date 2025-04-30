@@ -36,9 +36,40 @@ export default function Home() {
     }
 
   }, [mouseLocation]);
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    }
 
-  
+    const callback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }
 
+    const observer = new IntersectionObserver(callback, options);
+    const sections = ['about-me', 'experiences', 'projects', 'blog'];
+    sections.forEach(section => {
+      const element = document.getElementById(section);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      sections.forEach(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    }
+
+  }, [])
 
   return (
     <div id="page" className="text-[#eaeaea9d] min-h-screen antialiased">
