@@ -10,6 +10,10 @@
   },
   "dependencies": {
     "@deemlol/next-icons": "^0.1.9",
+    "@tailwindcss/typography": "^0.5.16",
+    "highlight.js": "^11.11.1",
+    "marked": "^15.0.11",
+    "marked-highlight": "^2.2.1",
     "motion": "^12.4.7",
     "next": "^15.2.4",
     "react": "^19.0.0",
