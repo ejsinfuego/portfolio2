@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-
+import Link from "next/link";
 
 interface NavProps {
     activeSection: string;
@@ -42,6 +42,12 @@ const Nav = ({activeSection, setActiveSection}:NavProps) => {
         >Projects
         {horizontalLine({ active: activeSection === 'projects'})}
         </li>
+        <Link href="/blog">
+          <li className="text-[#eaeaea9d] flex flex-row flex-auto justify-center items-center hover:text-gray-50 cursor-pointer">
+            Blog
+            {horizontalLine({ active: false })}
+          </li>
+        </Link>
         {/* <li className={`text-[#eaeaea9d] ${activeSection === 'contact' && 'text-teal-50'} flex flex-row flex-auto justify-center items-center hover:text-gray-50 cursor-pointer`}
          onClick={() => {
           setActiveSection("contact");
