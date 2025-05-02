@@ -90,6 +90,8 @@ export default function BlogPostPage() {
         {post.coverImage && (
           <div className="mb-8">
             <Image
+              height={500}
+              width={500}
               src={post.coverImage}
               alt={post.title}
               className="w-full h-auto rounded-lg"
