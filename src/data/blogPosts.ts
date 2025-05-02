@@ -54,5 +54,93 @@ I wish debugging life was as easy as reading a stack trace. But even without one
 
 Landing my first job wasn’t just about technical skills. It was about being open to learning, working with others, and embracing the unknown. I still have a lot to learn—but that’s what makes this journey exciting.
 `},
+{
+  slug: "building-custom-sso-system",
+  title: "Building a Custom Single Sign-On (SSO) System",
+  date: "2025-05-02",
+  coverImage: "/images/blogs/sso.png",
+  excerpt: "How I designed and implemented a secure, token-based SSO system to unify authentication across multiple web apps.",
+  tags: ["Software Engineering", "Authentication", "Web Development"],
+  content: `## Building a Custom SSO System for Multi-App Authentication
+
+### Overview
+
+As part of a recent project, I developed a custom Single Sign-On (SSO) solution to unify authentication across multiple web applications. The goal was to improve security, simplify the user experience, and make it easier for new services to integrate into the platform.
+
+---
+
+### The Challenge
+
+Managing authentication separately for each app caused:
+
+- Inconsistent login experiences
+- Redundant session handling
+- Increased maintenance overhead
+
+A centralized SSO system was needed to streamline access across the ecosystem.
+
+---
+
+### The Solution
+
+I designed an SSO system based on secure token exchange and redirect-based login flows:
+
+1. Redirect to Auth Portal: If not logged in, users are sent to the main authentication portal.
+2. Login & Token Generation: On successful login, a one-time token is created.
+3. Redirect Back with Token: The user is redirected back to the original app with the token.
+4. Token Validation: The app calls an API to validate the token and fetch user session data.
+
+This ensures that authentication is handled in one place, while apps stay lightweight and secure.
+
+---
+
+### Key Features
+
+- One-Time, Expiring Tokens  
+  Tokens are short-lived and single-use to prevent replay attacks.
+
+- App Registration  
+  Each app is registered with a client_id and allowed redirect URI to ensure secure access control.
+
+- Simple Integration  
+  New apps only need to handle login redirection and one token validation API call.
+
+---
+
+### Developer Support
+
+To support other developers, I documented:
+
+- Redirect and validation flows
+- Expected token structure
+- Sample API requests
+- Integration code snippets
+
+This made onboarding for other teams seamless and fast.
+
+---
+
+### Results
+
+- One login grants access to all connected apps
+- Reduced authentication bugs and duplicated logic
+- Faster integration of new tools into the platform
+
+---
+
+### What I Learned
+
+- Token expiration and invalidation are essential for security.
+- Clear documentation can make or break adoption.
+- Designing for extensibility early pays off in the long run.
+
+---
+
+### Final Thoughts
+
+Building a custom SSO system was a rewarding experience that blended security, usability, and scalability. It’s a great example of how thoughtful infrastructure can unlock better experiences for users and developers alike.
+`
+}
+
   
 ];
