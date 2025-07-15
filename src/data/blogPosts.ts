@@ -6,6 +6,7 @@ export interface BlogPost {
   content: string;
   coverImage?: string;
   tags: string[];
+  keywords?: string[];
 }
 
 export const blogPosts: BlogPost[] = [
@@ -15,6 +16,23 @@ export const blogPosts: BlogPost[] = [
     date: "2025-01-02",
     excerpt: "How I handle new challenges in my first year as full stack web developer",
     tags: ["Software Engineering", "Web Development"],
+    keywords: [
+"first software developer job",
+"how to get a developer job",
+"starting a career in software engineering",
+"junior developer journey",
+"breaking into tech",
+"first year as a software engineer",
+"tips for new developers",
+"software engineering career advice",
+"entry level developer experience",
+"learning to code professionally",
+"developer job interview tips",
+"software engineering lessons learned",
+"teamwork in software development",
+"overcoming imposter syndrome in tech",
+"growth as a junior developer",
+    ],
     content: `## How I Got My First Job as a Developer
 
 My journey into professional software development started unexpectedly. During our Capstone Project, I often reached out to a friend of mine—the Lead Developer of our team—for help and guidance. One day, he asked if I’d like to join their team as a Junior Developer. 
@@ -61,6 +79,25 @@ Landing my first job wasn’t just about technical skills. It was about being op
   coverImage: "/images/blogs/sso.png",
   excerpt: "How I designed and implemented a secure, token-based SSO system to unify authentication across multiple web apps.",
   tags: ["Software Engineering", "Authentication", "Web Development"],
+  keywords: [
+    "custom SSO system",
+    "single sign-on implementation",
+    "SSO authentication",
+    "token-based authentication",
+    "multi-app authentication",
+    "secure authentication system",
+    "SSO for web apps",
+    "SSO integration guide",
+    "SSO security best practices",
+    "how to build SSO",
+    "user authentication strategies",
+    "centralized authentication",
+    "SSO developer onboarding",
+    "SSO token validation",
+    "SSO redirect flow",
+    "app registration SSO",
+    "SSO API design"
+  ],
   content: `## Building a Custom SSO System for Multi-App Authentication
 
 ### Overview
@@ -140,6 +177,125 @@ This made onboarding for other teams seamless and fast.
 
 Building a custom SSO system was a rewarding experience that blended security, usability, and scalability. It’s a great example of how thoughtful infrastructure can unlock better experiences for users and developers alike.
 `
+},{
+  slug: "ci-cd-deployment-strategy",
+  title: "My CI/CD Deployment Strategy for Node.js",
+  date: "2025-07-15",
+  excerpt: "This guide details a robust CI/CD (Continuous Integration/Continuous Deployment) pipeline for a Node.js application, leveraging GitHub Actions, SSH, and PM2. The strategy ensures that every push to the prod branch triggers an automated, secure, and zero-downtime deployment to your production server.",
+  tags: ["NodeJS", "VPS", "CI/CD", "Deployment", "PM2"],
+keywords: [
+  "Node.js CI/CD pipeline",
+  "Node.js deployment",
+  "Continuous Integration Node.js",
+  "Continuous Deployment Node.js",
+  "GitHub Actions Node.js",
+  "PM2 deployment Node.js",
+  "Zero downtime deployment Node.js",
+  "Node.js production workflow",
+  "Automated deployment Node.js",
+  "Node.js server automation",
+  "Node.js DevOps best practices",
+  "Node.js GitHub Actions workflow",
+  "Node.js SSH deployment",
+  "Node.js VPS deployment",
+  "Node.js backup and rollback",
+  "Secure Node.js deployment"
+],
+  content: `## Overview
+
+  This is my personal guide to a modern CI/CD (Continuous Integration/Continuous Deployment) pipeline for Node.js apps. I use GitHub Actions, SSH, and PM2 to make sure every push to the prod branch results in a secure, automated, and zero-downtime deployment to my production server.
+  
+  ----
+  ## Server Steps
+  1. Server Setup
+  On my server, I run:
+  \`\`\`
+  cd /home/$(whoami)
+  bash app/scripts/server-setup.sh
+  \`\`\`
+  2. Github Secrets Configuration
+  I add these secrets to my GitHub repository (Settings → Secrets and variables → Actions):
+
+      - **HOST**: My server's IP address or domain name
+      - **USERNAME**: The Linux username I use for deployment
+      - **SSH_KEY**: The private SSH key (the entire content of my ~/.ssh/id_rsa or ~/.ssh/id_ed25519 file)
+      - **PORT**: SSH port (usually 22)
+  3. Branch Setup
+      - **main**: My development branch
+      - **prod**: My production branch (triggers deployment)
+
+  ## My Deployment Workflow
+  1. Develop on main branch
+  \`\`\`
+  git checkout main
+  # Make changes
+  git add .
+  git commit -m "Describe your change"
+  git push origin main
+  \`\`\`
+2. Deploy to production
+  \`\`\`
+  git checkout prod
+  git merge main
+  git push origin prod
+  \`\`\`
+3. GitHub Actions automatically:
+  - Runs tests (if any)
+  - Builds the application
+  - Deploys to my server
+  - Restarts the PM2 process
+---
+## Monitoring
+To check deployment status on my server:
+  \`\`\`
+  pm2 status
+  pm2 logs my-app
+  \`\`\`
+I also check the GitHub Actions tab for workflow logs.
+
+---
+
+## Troubleshooting
+### Common Issues I’ve Encountered:
+
+1. Permission denied during deployment
+    - I double-check my SSH key and username in the secrets
+2. PM2 process not found
+    - I run pm2 start ecosystem.config.js manually if needed
+3. Build fails
+    - I make sure my \`package.json\` scripts and Node.js version are correct
+---
+## Directory Structure
+\`\`\`
+Server:
+/var/www/my-app/   # Main app directory
+/home/user/backups/           # Automatic backups
+/home/user/.pm2/              # PM2 config
+
+GitHub:
+main branch           # Development
+prod branch           # Production (triggers deployment)
+.github/workflows/    # GitHub Actions
+\`\`\`
+---
+## Why I Like This Strategy
+- ✅ Automated deployment – Push to prod = live update
+- ✅ Backups – Automatic before each deployment
+- ✅ Zero-downtime – PM2 restarts gracefully
+- ✅ Easy rollback – I can revert using backups or git
+- ✅ Monitoring – GitHub Actions and PM2 logs show me everything
+---
+##  Security Notes
+I keep my SSH keys secure and rotate them regularly
+Only trusted team members have access to the prod branch
+For private repos, I use deploy keys if needed
+
+---
+This setup has made my deployments fast, safe, and reliable. Happy deploying! 🚀
+
+>Complexity has Disposition, not Predictability” – Liz Keogh
+`
+
 }
 
   
