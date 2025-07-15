@@ -181,6 +181,7 @@ Building a custom SSO system was a rewarding experience that blended security, u
   slug: "ci-cd-deployment-strategy",
   title: "My CI/CD Deployment Strategy for Node.js",
   date: "2025-07-15",
+  coverImage: "/images/blogs/pm2.png",
   excerpt: "This guide details a robust CI/CD (Continuous Integration/Continuous Deployment) pipeline for a Node.js application, leveraging GitHub Actions, SSH, and PM2. The strategy ensures that every push to the prod branch triggers an automated, secure, and zero-downtime deployment to your production server.",
   tags: ["NodeJS", "VPS", "CI/CD", "Deployment", "PM2"],
 keywords: [
