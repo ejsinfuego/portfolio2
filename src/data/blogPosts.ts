@@ -6,7 +6,7 @@ export interface BlogPost {
   content: string;
   coverImage?: string;
   tags: string[];
-  keywords?: string[];
+  keywords: string[];
 }
 
 export const blogPosts: BlogPost[] = [

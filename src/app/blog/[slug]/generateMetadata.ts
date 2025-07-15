@@ -10,21 +10,20 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description: 'This blog post does not exist.',
     };
   }
-  const description = post.excerpt || post.content?.slice(0, 160) || post.title;
   return {
     title: post.title,
-    description,
+    description: post.excerpt,
     openGraph: {
       title: post.title,
-      description,
+      description: post.excerpt,
       images: post.coverImage ? [post.coverImage] : [],
       type: 'article',
     },
-    keywords: post.tags,
+    keywords: [...post.tags, ...post.keywords],
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      description,
+      description: post.excerpt,
       images: post.coverImage ? [post.coverImage] : [],
     },
   };
