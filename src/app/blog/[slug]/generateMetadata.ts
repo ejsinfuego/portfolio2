@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import { blogPosts } from '@/data/blogPosts';
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const slug = params?.slug;
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> }
+): Promise<Metadata> {
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug;
   const post = blogPosts.find(post => post.slug === slug);
   if (!post) {
     return {
